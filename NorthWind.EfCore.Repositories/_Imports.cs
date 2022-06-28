@@ -1,0 +1,9 @@
+﻿global using NorthWind.Sales.BusinessObjects.POCOEntities;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using System.Reflection;
+global using NorthWind.EfCore.Repositories.DataContexts;
+global using NorthWind.Sales.BusinessObjects.Interfaces.Repositories;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using NorthWind.EfCore.Repositories.Repositories;

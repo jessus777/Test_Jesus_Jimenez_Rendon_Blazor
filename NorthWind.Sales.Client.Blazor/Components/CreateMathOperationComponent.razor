@@ -1,0 +1,75 @@
+﻿
+<div class=" container-fluid">
+    <CardComponent Title="Operaciones">
+        <hr />
+        <div class="row justify-content-evenly">
+            <div class="col-md-12 col-12">
+                <AlertBorderComponent Class="warning warning-alert">
+                    <p class="lh-sm fs-6">
+                        <span class="oi oi-warning"> </span> Los campos con el <strong>*</strong> son obligatorios.
+                        <br />
+                        <span class="oi oi-warning"> </span> Para el caso del <strong>Factorial</strong>, siempre tomará el primer input
+                    </p>
+                </AlertBorderComponent>
+            </div>
+        </div>
+
+        <EditForm Model="MathOperation">
+            <div class="row justify-content-evenly">
+                <div class="col-md-6 mb-4">
+                    <div class="form-floating">
+                        <InputNumber class="form-control"
+                                     id="number1Valid" placeholder="Número uno * "
+                                     @bind-Value="MathOperation.NumberOne"
+                                     @ref="refInput1" />
+                        <label for="number1Valid" class="fst-italic text-black-50">Número uno * </label>
+                        <div class="invalid-feedback">
+                            <strong></strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="form-floating">
+                        <InputNumber class="form-control"
+                                     id="number2Valid" placeholder="Número dos * "
+                                     @bind-Value="MathOperation.NumberTwo"
+                                     @ref="refInput2" />
+                        <label for="number2Valid" class="fst-italic text-black-50">Número dos * </label>
+                        <div class="invalid-feedback">
+                            <strong></strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a class="btn btn-outline-primary mb-2" tabindex="-1" role="button" aria-disabled="false" @onclick="@(e => SendAdd(e, 1))"><span class="oi oi-code"> </span> Suma </a>
+                    <a class="btn btn-outline-secondary  mb-2" tabindex="-1" role="button" aria-disabled="false" @onclick="@(e => SendAdd(e, 2))"><span class="oi oi-code"> </span> Resta</a>
+                    <a class="btn btn-outline-success  mb-2" tabindex="-1" role="button" aria-disabled="false" @onclick="@(e => SendAdd(e, 4))"><span class="oi oi-code"> </span> Multipliación </a>
+                    <a class="btn btn-outline-danger  mb-2" tabindex="-1" role="button" aria-disabled="false" @onclick="@(e => SendAdd(e, 3))"><span class="oi oi-code"> </span> División</a>
+                    <a class="btn btn-outline-info  mb-2" tabindex="-1" role="button" aria-disabled="false" @onclick="@(e => SendAdd(e, 5))"><span class="oi oi-code"> </span> Factorial </a>
+                </div>
+            </div>
+        </EditForm>
+
+        <br />
+        @if (!string.IsNullOrEmpty(ErrorProccess))
+        {
+            <div class="alert alert-danger">
+                @Message
+            </div>
+        }
+        else
+        {
+            @if (!string.IsNullOrWhiteSpace(Message))
+            {
+                <div class="alert alert-info">
+                    <strong>Resultado </strong>
+                    <br />
+                    @Message
+                </div>
+            }
+        }
+
+    </CardComponent>
+</div>

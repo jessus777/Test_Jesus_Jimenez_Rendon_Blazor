@@ -1,0 +1,11 @@
+﻿@page "/createMathOperation"
+<PageTitle>Prueba</PageTitle>
+<br />
+<ErrorBoundary @ref=ErrorBoundaryRef>
+    <ChildContent>
+        <CreateMathOperationComponent MathOperation="MathOperation"/>
+    </ChildContent>
+    <ErrorContent>
+        <ErrorComponent Exception=context/><button class="btn btn-danger" @onclick=Recover>Ok</button>
+    </ErrorContent>
+</ErrorBoundary>
